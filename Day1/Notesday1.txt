@@ -1,0 +1,70 @@
+Database oracle/mysql
+
+Oracle Basic Queries
+Create Table -: 
+create table emp (empno NUMBER(5) PRIMARY KEY,ename VARCHAR2(15) NOT NULL,job VARCHAR2(10));
+Update Table -: 
+update emp set ename="sumit",job="developer" where empno=1;
+Insert value in Table -:
+INSERT INTO emp (ename, job) VALUES ('Sumit', 'Developer');
+Delete data from Table -:
+DELETE FROM emp WHERE empno = 1;
+Delete Table -:
+DROP TABLE emp;
+
+Mysql Basic Queries
+Create Table -: 
+CREATE TABLE emp (empno INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,ename VARCHAR(15) NOT NULL,job VARCHAR(10) NOT NULL);
+Update Table -: 
+update emp set ename="sumit",job="developer" where empno=1;
+Insert value in Table -:
+INSERT INTO emp (ename, job) VALUES ('Sumit', 'Developer');
+Delete data from Table -:
+DELETE FROM emp WHERE empno = 1;
+Delete Table -:
+DROP TABLE emp;
+
+JDBC- java database Connectivity - 
+Database driver
+- Type I --- Jdbc Odbc Bridge Driver
+- Type II --- Partially in C & Java --- Vendor specific
+	- e.g. Oracle OCI driver -- but now outdated.
+- Type III --- Middleware driver
+	- e.g. WebLogic RMI driver
+- Type IV --- Fully in Java -- Portable -- Vendor specific
+	- e.g. MySQL Connector (mysql-connector-x.y.z.jar) , Oracle thin driver (ojdbcx.jar), ...
+ - Internally uses TCP sockects to connect to database and get results.
+ 
+ - JDBC Steps:
+		1. Load & register driver class.
+		2. Get JDBC connection (using DriverManager).
+		3. Create JDBC statement (SQL query).
+		4. Execute the query and collect result.
+			- SELECT ---> executeQuery() -- ResultSet (rows & cols)
+			OR
+			- Non-SELECT --> executeUpdate() -- int (affected rows).
+		5. Close all.
+		
+- JDBC objects:
+		1. Driver ---> Create socket connection with database & authenticate. Should be registered with DriverManager.
+		2. Connection ---> Encapsulate socket connection & used for creating statements and managing transactions.
+		3. Statement ---> Reresents SQL query. Can be DDL, DML or DQL.
+			-- PreparedStatement -- For executing parameterized queries.
+				e.g. INSERT INTO DEPT VALUES(?,?,?);			
+		4. ResultSet ---> Like a cursor in RDBMS. Used to access records/rows one by one.
+
+MySQL Driver Connection -:
+String DB_DRIVER = "com.mysql.jdbc.Driver";
+String DB_URL = "jdbc:mysql://localhost:3306/studentdb";
+String DB_USER = "root";
+String DB_PASSWORD = "";
+
+Oracle Driver Connection -:
+String DB_DRIVER = "oracle.jdbc.OracleDriver";
+String DB_URL = "jdbc:oracle:thin:localhost:1521:XE";
+String DB_USER = "scott";
+String DB_PASSWORD = "tiger";
+
+
+
+
