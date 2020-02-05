@@ -1,0 +1,128 @@
+Stand alone Application
+1 GUI Based Application/Desktop
+    e.g Calculator
+2 CUI Based Application-(Character User Interface Based)
+ e.g All core java Application which are running from Command prompt is a CUI Based
+Also Called Console Application
+
+
+Web Application
+e.g www.google.com
+java enterprise application- Bank Application,Telecom Application
+means it support atm,smart device, It is combination of all things(Multiple services) like Bank Application
+
+
+Server
+1 H/w Server- physical Machine(It has one or more S/W server run with differentiate using port)
+2 S/W Server
+    - Web Server- IIS (Microsoft),Glassfish (sun Microsystem),Tomcat server(Apache),Jboss (Red Hat),weblogic (oracle)
+    - Application Server- mysql, Angular server,Oracle server
+3 one port has one application only 
+
+HTTP protocol:
+- HTTP is stateless protocol
+- HTTP is application layer protocol based on TCP protocol.
+	- HTTP is connection less protocol i.e. for each request from client a new socket connection is established for the server, through with request data is sent to the server. Server does process and produces response, which in turn sent back to the client through same socket and then connection is closed. For next request, new connection will be established.
+	- HTTP follows Request-Response model.
+	- HTTP Request = Req headers + Req body
+	Headers:
+			Req Method = GET/POST/PUT/DELETE/HEAD/TRACE/OPTIONS
+			Uri = resource identifier
+			HTTP version = 1.0 / 1.1
+			Browser language = en
+			Client/Browser = IP address
+			Content Type = type of data
+			Content Length = num of bytes in body
+			Cookies
+			User-Agent = Browser details
+	Body:
+			data 
+				e.g. form data -- in key=value pair.
+				e.g. JSON data
+- HTTP Response = Resp headers + Resp body	
+		Headers:
+			HTTP version=1.0/1.1
+			Content-Type= type of data in resp body.
+			Content-Length= num of bytes in resp body.
+			Status code & message
+			Language
+			Server info= IP address
+			Cookies
+		Body:
+			data
+				e.g. HTML tags
+				e.g. JSON data
+- HTTP Content Types:
+	text
+		text/plain, text/xml, "text/html"
+	image
+		image/jpeg, image/png, ...
+	audio
+		audio/mp3, audio/wav, ...
+	video
+		video/mpeg, ...
+	application
+		application/json, application/pdf, ...
+		
+HTTP Status code:
+	2xx --> success e.g. 200 (success/OK)
+	3xx --> redirection e.g. 302 (http redirection)resource move to other
+	4xx --> errors e.g. 403 (forbidden), 404 (not found), 400 (Bad Request) ...	
+	5xx --> server errors Whenever there is problem on server side this series is used
+	
+HTTP Request Methods:
+	- GET: 
+		- To get a resource from server.
+		- submit html form with method=get, click on hyperlink, accessing page from browser entering url.
+		- If used with html form data, then data is sent to the server via url (query string -- url?key=value). Do not use this in html forms for sensitive data.
+	- POST:
+		- To submit a html form on server.
+		- submit html form with method=post.
+		- The data is sent in request body.
+	- PUT:
+		- To add/edit a file/resource on server.
+	- DELETE:
+		- To delete a file/resource from server.
+	- HEAD:
+		- Server send only response headers (not response body).
+		- Used to check resource availbility and info from server.
+	- TRACE:
+		- To debug.
+	- OPTIONS:
+		- To check which HTTP methods are supported by the resource.
+		
+
+API-(Application Program Interface)- a set of functions and procedures allowing the creation of applications that access the features or data of an operating system, application, or other service
+in short- Already defined classess to take predefined action, also to override the method to force it to use. But why it is force it because it required uniformality to the application.
+
+- ServletConfig Interface
+javax.servlet.ServletConfig is used to pass configuration information to Servlet. Every servlet has it’s own ServletConfig object and servlet container is responsible for instantiating this object. We can provide servlet init parameters in web.xml file. We can use getServletConfig() method to get the ServletConfig object of the servlet.
+
+- GenericServlet class:
+		- Abstract class inherited from Servlet interface.
+		- Contains default impl of init() & destroy(); but service() is abstract.
+		- Protocol independent servlet.
+		- Two inherited classes: FtpServlet, HttpServlet.
+		- GenericServlet is also inherited from ServletConfig interface.
+			- represents servlet config given in web.xml file.
+			- used to read that config in servlet code e.g. getInitParameter(), ...
+	
+		
+Servlet --
+	- is a Java class that is executed on the server side when request comes from the client and produces response to be sent to the client.
+	
+	- servlet specs -- interface Servlet (javax.servlet package).
+		- Lifecycle methods -- Called by web-server/web-container and implemented by the developer.
+	
+	- void init(ServletConfig config) throws ServletException;
+			- Called only once (in life time of servlet object) after creation of the object (after constructor).
+			- Should contain one-time init code e.g. Db connection, ...
+	- void service(ServletRequest req, ServletResponse resp) throws 		  ServletException, IOException;
+			- Called for each request.
+			- Should contain response generation logic.
+	- void destroy();
+			- Called only once (in life time of servlet object) before destroying the servlet object (before garbage collector is called).
+			- Called when appln in undeployed or server is shutting down.
+			Should contain de-init code e.g. Db dis-connection, ...
+
+- web.xml (deployment descriptor (web.xml))
