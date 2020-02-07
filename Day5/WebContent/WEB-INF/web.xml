@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>DemoJDBC</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <context-param>
+  	<param-name>conectionDriver</param-name>
+  	<param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>connectionURL</param-name>
+  	<param-value>jdbc:mysql://localhost:3306/octdec</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>dbuser</param-name>
+  	<param-value>root</param-value>
+  </context-param>
+    <context-param>
+  	<param-name>dbpassword</param-name>
+  	<param-value></param-value>
+  </context-param>
+  
+  <servlet>
+    <description></description>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.hefshine.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterServlet</display-name>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.hefshine.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StudentRegisterServlet</display-name>
+    <servlet-name>StudentRegisterServlet</servlet-name>
+    <servlet-class>com.hefshine.servlet.StudentRegisterServlet</servlet-class>
+    
+    <init-param>
+    	<param-name>Trainer1</param-name>
+    	<param-value>Sumit Raokhande</param-value>
+    </init-param>    
+    
+    <init-param>
+    	<param-name>Trainer2</param-name>
+    	<param-value>Shrutika Madam</param-value>
+    </init-param>
+    
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentRegisterServlet</servlet-name>
+    <url-pattern>/StudentRegisterServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
