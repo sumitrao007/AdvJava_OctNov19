@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>DemoContextConfig</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>InstituteName</param-name>
+    <param-value>Shree Enginerring Academy</param-value>
+  </context-param>
+  <servlet>
+    <description></description>
+    <display-name>Batch1Servlet</display-name>
+    <servlet-name>Batch1Servlet</servlet-name>
+    <servlet-class>com.hefshine.servlet.Batch1Servlet</servlet-class>
+    <init-param>
+      <param-name>Trainer1</param-name>
+      <param-value>Sumit Raokhande</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Trainer2</param-name>
+      <param-value>Shrutika Madam</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Batch1Servlet</servlet-name>
+    <url-pattern>/Batch1Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Batch2Servlet</display-name>
+    <servlet-name>Batch2Servlet</servlet-name>
+    <servlet-class>com.hefshine.servlet.Batch2Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Batch2Servlet</servlet-name>
+    <url-pattern>/Batch2Servlet</url-pattern>
+  </servlet-mapping>
+</web-app>

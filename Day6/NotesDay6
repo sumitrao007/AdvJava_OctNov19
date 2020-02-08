@@ -1,0 +1,29 @@
+
+Servlet Context & Config- (Deprecated)
+  To Configure of web application servlet config & context concepts are use. We mainly use web.xml file to configure it.
+
+- Servlet context
+  The object of servlet context is created at the time of deployment.Servlet context is only one for entire application to configure globally applicable information we use servlet context.
+  E.g. Database relatated configuration, if you want to change any db url, user & password again you have to compile that DAO class, so instead of that we can configure globally in web.xml. Also you can access this information in each servlet
+
+- Servlet Config- 
+  Specific to servlet is called servlet config i.e. There is one ServletConfig object per servlet. It is used to read config settings of that servlet from web.xml 
+  E.g. In institute has serveral batches,with respective batches have different trainer means here 
+  Servlet context is our Institute (i.e. Global) & Trainer for specific batch is servlet config (i.e. Specific for that servlet(Batch) has different trainer )
+  
+
+Servlet Collabration-
+- Call from one servlet to another servlet is called servlet collabration. We can add another HTML file (i.e. call from one servlet to another html file). To perform servlet collabration task we have to required an object of request disppachter. Request disppachter object we can obtained from HttpServletRequest 
+
+- Request Dispatcher-(RD)
+- It has 2 methods 
+	- forward(request,response)
+	- include(request,response)
+
+Limitation of RD-
+  -When we forward the request it does not get destroyed, while submitting some sensitive information it creates a problem of data redundancy (i.e. repetation) so we must avoid  use of request disppachter. To overcome this problem send redirect method comes into the pictures. This method is directly called using an object of HttpServletResponse
+response.sendRedirect("url");  
+  
+  
+  
+  
