@@ -1,0 +1,22 @@
+State Management:
+	- HTTP is stateless protocol.
+		- Since connection is broken/closed after request, the info/state about the client is not maintained by the server. Hence it is also referred as "state-less" protocol.
+	- Maintaining info/state of the client across its multiple requests by the server is called as "State Management".
+	+ Client Side State Management:
+		* Cookies
+		- Query String i.e. URL rewriting 
+		- Hidden Form Fields		
+	+ Server Side State Management:
+		* Session
+		* Application/ServletContext
+Session -- HttpSession
+	- session.setAttribute("key", value);	
+	- value = session.getAttribute("key");
+	- session.invalidate();
+	
+  - To overcome limitation of stateless protocol we used session management.Session is nothing but a particular period of time in our application it is basically the time between login & logout activity.
+  - HTTP Session starts at the point of login if login creadentials are valid then we put important parameters in session object.When we logout any activity, we can terminate the session calling session.invalidate();method
+  - Create session object using http request i.e. request.getsession()
+  - To add information in session for that we use session.setAttribute("key", value); Method. This method accepts key & object form
+  - To get information from the session we use value = session.getAttribute("key");
+  method 
