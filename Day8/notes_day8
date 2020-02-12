@@ -1,0 +1,27 @@
+Servlet Filter
+ - Filters are plugable component. This filters acts as interceptor between client & server.
+ - We can apply one filter or more filter to single servlet & vise versa.
+ - If class acts as filter it needs to override dofilter method
+ - Filter is plugable whenever we required we can use use it.
+ - Filter is class extends servlet filter.
+ - The filter is worked as servlet but that can not be main purpose.
+ - you can use filter chaining.
+ - Every filter has filter config.
+ - A filter is an object that is invoked at the preprocessing & postprocessing of request.
+ - It is mainly used to perform Filtering task
+    1 conversion
+	2 Encryption & decryption
+	3 Logging
+	4 input validation
+	5 compression
+ - If we remove the entry of filter from web.xml file filter will be removed automatically & we don't need to change the servlet.
+ - Maintance cost will be less, easy to maintain
+ - Filter provides isolation to main servlet.
+ - For creating any filter you must implement the filter interface.
+ - Life cycle of filter
+	1 init(FilterConfig config)-
+	   invoked only it is used to initialize the filter.
+	2 doFilter(ServletRequest req,HTTPResponse resp,FilterChain chain)-
+	   It is invoked everytime when user request to which the filter is mapped. It is used to filtering task.
+	3 destroy()- 
+	   It is invoked only once when filter is destroyed.

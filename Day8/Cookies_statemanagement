@@ -1,0 +1,17 @@
+Add Cookie At login Servlet
+//Use of Cookies
+			
+			Cookie cookie=new Cookie("username", username);
+			
+			response.addCookie(cookie);
+			
+//Fetch the Cokkies on Welcome Servlet 
+		Cookie cookie[]=request.getCookies();
+		
+		String username="";
+		
+		for(Cookie c:cookie) {
+			if(c.getName().equals("username")) {
+				username=c.getValue();
+			}
+		}
